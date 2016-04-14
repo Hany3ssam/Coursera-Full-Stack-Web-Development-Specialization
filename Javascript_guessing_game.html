@@ -7,7 +7,7 @@
 
   <body onload="do_game()">
     <script type="text/javascript">
-    var _colors = ["red", "blue", "green", "black", "yellow", "gray"];
+    var _colors = ["red","White","Orange", "blue", "green", "black", "yellow", "gray"].sort();
     var _finished = false;
     var _count = 0;
     var target;
@@ -42,7 +42,11 @@
           return false;
         }
 
-        alert("You got it right, It takes you " + _count  + " guesses");
+        
+        var myBody = document.getElementsByTagName("body")[0];
+            myBody.style.background = target;
+            alert("You got it right, It takes you " + _count  + " guesses");
+            
         return true;
       }
     </script>
