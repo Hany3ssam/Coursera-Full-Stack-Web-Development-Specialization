@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    
+  </head>
+
+  <body onload="do_game()">
+    <script type="text/javascript">
+    var _colors = ["red", "blue", "green", "black", "yellow", "gray"];
+    var _finished = false;
+    var _count = 0;
+    var target;
+    var guess_input;
+
+    function do_game() {
+      var target_index = Math.random() * _colors.length;
+      var target_index_int = Math.floor(target_index);
+      target = _colors[target_index_int];
+      alert(target);
+
+      while(!_finished) {
+         guess_input = prompt("I'm thinking of a color from those colors,\n" + _colors + "\n can you guess it ?");
+        _count += 1;
+        _finished = check_guess();
+
+      }
+    }
+      function check_guess()
+      {
+        if(_colors.indexOf(guess_input) == -1){
+          alert("Please choose one of the colors below.\n" +_colors);
+          return false;
+        }
+        if(guess_input < target){
+          alert("Your guess is lower.");
+          return false;
+        }
+        if(guess_input > target)
+        {
+          alert("Your guess is higher.");
+          return false;
+        }
+
+        alert("You got it right, It takes you " + _count  + " guesses");
+        return true;
+      }
+    </script>
+  </body>
+
+</html>
