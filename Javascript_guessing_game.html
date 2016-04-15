@@ -7,7 +7,7 @@
 
   <body onload="do_game()">
     <script type="text/javascript">
-    var _colors = ["red","White","Orange", "blue", "green", "black", "yellow", "gray"].sort();
+    var _colors = ["red","white","orange", "blue", "green", "black", "yellow", "gray"].sort();
     var _finished = false;
     var _count = 0;
     var target;
@@ -17,10 +17,10 @@
       var target_index = Math.random() * _colors.length;
       var target_index_int = Math.floor(target_index);
       target = _colors[target_index_int];
-      alert(target);
+      //alert(target);
 
       while(!_finished) {
-         guess_input = prompt("I'm thinking of a color from those colors,\n" + _colors + "\n can you guess it ?");
+         guess_input = prompt("I'm thinking of a color from those ones ,\n" + _colors+ "\n can you guess it ?");
         _count += 1;
         _finished = check_guess();
 
@@ -33,19 +33,19 @@
           return false;
         }
         if(guess_input < target){
-          alert("Your guess is lower.");
+          alert("Your guess is alphabetically Higher than mine.");
           return false;
         }
         if(guess_input > target)
         {
-          alert("Your guess is higher.");
+          alert("Your guess is alphabetically Lower than mine.");
           return false;
         }
 
         
         var myBody = document.getElementsByTagName("body")[0];
             myBody.style.background = target;
-            alert("You got it right, It takes you " + _count  + " guesses");
+            alert("Hurray! It takes you " + _count  + " guesses to get it Right!");
             
         return true;
       }
